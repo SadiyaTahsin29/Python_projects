@@ -1,0 +1,13 @@
+import plotly.express as px
+
+# Sample data
+data = {
+    'id': ["A", "B", "C", "D", "E", "F", "G"],
+    'parent': ["", "A", "A", "B", "B", "C", "D"],
+    'value': [50, 25, 17, 18, 12, 6, 10],
+}
+fig = px.sunburst(data, names='id', parents='parent', values='value')
+
+fig.update_layout(title_text="Sunburst Chart")
+
+fig.show()
