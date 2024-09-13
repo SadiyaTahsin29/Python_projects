@@ -1,0 +1,12 @@
+import pandas as pd
+data = {
+  'Product': ['A', 'B', 'C', 'D'],
+  'Price': ['$10', '$20', '$30', '$40']
+}
+df = pd.DataFrame(data)
+
+def clean_prices(df):
+  df['Price'] = df['Price'].str.replace('$', '').astype(float)
+  return df
+cleaned_df = clean_prices(df)
+print(cleaned_df)
