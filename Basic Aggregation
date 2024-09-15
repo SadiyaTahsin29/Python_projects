@@ -1,0 +1,13 @@
+import pandas as pd
+data = {
+  'Region': ['North', 'South', 'East', 'West', 'North', 'South', 'East', 'West'],
+  'Sales': [100, 200, 150, 250, 300, 100, 200, 150]
+}
+df = pd.DataFrame(data)
+
+def total_sales_per_region(df):
+  total_sales = df.groupby('Region')['Sales'].sum().reset_index()
+  return total_sales
+
+total_sales = total_sales_per_region(df)
+print(total_sales)
