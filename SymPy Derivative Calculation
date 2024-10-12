@@ -1,0 +1,26 @@
+import sympy as sym
+
+def calculate_derivative(expression_str, x_value):
+    x = sym.Symbol('x')
+    func = sym.sympify(expression_str)
+    derivative = sym.diff(func, x)
+    
+    func_lambda = sym.lambdify(x, func)
+    derivative_lambda = sym.lambdify(x, derivative)
+    
+    return {
+        'original_function': str(func),
+        'derivative': str(derivative),
+        'value_at_x': func_lambda(x_value),
+        'derivative_at_x': derivative_lambda(x_value)
+    }
+
+# Example usage
+expression = "x**4 + 4*x**2 + 5*x - 6"
+x_val = 5
+result = calculate_derivative(expression, x_val)
+
+print(f"Original function: {result['original_function']}")
+print(f"Derivative: {result['derivative']}")
+print(f"Value at x={x_val}: {result['value_at_x']}")
+print(f"Derivative at x={x_val}: {result['derivative_at_x']}")
