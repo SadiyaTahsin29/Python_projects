@@ -1,0 +1,20 @@
+from moviepy.editor import VideoFileClip
+from tkinter.filedialog import askopenfilename
+import tkinter as tk
+
+# Initialize Tkinter
+root = tk.Tk()
+root.withdraw()  # Hide the root window
+
+# Ask user for video file
+video_file = askopenfilename(title="Select a Video File")
+
+if video_file:
+    # Load the video file
+    clip = VideoFileClip(video_file)
+    
+    # Write the GIF
+    clip.write_gif("output.gif", fps=10)
+    print("GIF has been created successfully!")
+else:
+    print("No video file selected.")
