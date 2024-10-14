@@ -1,0 +1,10 @@
+# example_click.py
+import click
+
+@click.command()
+@click.argument("message")
+def main(message: str):
+    print(f"Message: {message}")
+
+if __name__ == "__main__":
+    main()
