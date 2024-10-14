@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from tsmoothie.smoother import LowessSmoother
+
+# Sample data: Generate some noisy data
+np.random.seed(0)
+x = np.linspace(0, 10, 100)
+data = np.sin(x) + np.random.normal(0, 0.1, size=x.shape)
+
+# Initialize LowessSmoother
+smoother = LowessSmoother(smooth_fraction=0.1, iterations=1)
+
+# Operate smoothing
+smoother.smooth(data)
+
+# Generate intervals
+low, up = smoother.get_intervals("prediction_interval")
+
+# Plot the results
+plt.figure(figsize=(10, 6))
+plt.plot(x, data, label='Noisy Data', alpha=0.5)
+plt.plot(x, smoother.smooth(data), label='Smoothed Data', color='orange')
+plt.fill_between(x, low, up, color='lightgray', alpha=0.5, label='Prediction Interval')
+plt.title('Lowess Smoothing with Prediction Intervals')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.legend()
+plt.show()
