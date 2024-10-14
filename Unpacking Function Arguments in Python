@@ -1,0 +1,15 @@
+# 1. Unpacking keyword arguments
+def func1(a, b, c):
+    print(a, b, c)
+
+kwargs = {'a': 1, 'b': 2, 'c': 3}
+print("Unpacking keyword arguments:")
+func1(**kwargs)
+
+# 2. Unpacking non-keyword arguments
+def func2(a, b, c):
+    print(a, b, c)
+
+args = [1, 2, 3]
+print("\nUnpacking non-keyword arguments:")
+func2(*args)
