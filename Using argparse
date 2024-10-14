@@ -1,0 +1,11 @@
+# example_argparse.py
+import argparse
+
+def main(message: str):
+    print(f"Message: {message}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="A simple CLI")
+    parser.add_argument("message", help="Help message")
+    args = parser.parse_args()
+    main(args.message)
