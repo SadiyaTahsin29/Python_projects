@@ -1,0 +1,15 @@
+import barcode
+from barcode.writer import ImageWriter
+from PIL import Image
+
+# Input from the user
+number = input("Enter the code to generate barcode: ")
+
+# Generating the barcode
+barcode_format = barcode.get_barcode_class('upc')  # Use 'upc' format
+my_barcode = barcode_format(number, writer=ImageWriter())
+my_barcode.save("generated_barcode")  # Saves as 'generated_barcode.png'
+
+# Displaying the barcode image
+img = Image.open("generated_barcode.png")
+img.show()
