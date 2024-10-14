@@ -1,0 +1,8 @@
+import pyautogui
+ss = pyautogui.screenshot()
+ss.save("image1.png")
+
+
+from PIL import ImageGrab
+ss = ImageGrab.grab()
+ss.save("image1.png")
