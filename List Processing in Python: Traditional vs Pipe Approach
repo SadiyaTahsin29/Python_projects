@@ -1,0 +1,20 @@
+nums = [1, 2, 3, 4, 5, 6]
+result1 = list(
+    filter(lambda x: x % 2 == 0,
+           map(lambda x: x ** 2, nums)
+    )
+)
+print("Using built-in functions:")
+print(result1)
+
+# Approach using the pipe library
+from pipe import select, where
+
+nums = [1, 2, 3, 4, 5, 6]
+result2 = list(
+    nums
+    | select(lambda x: x ** 2)
+    | where(lambda x: x % 2 == 0)
+)
+print("\nUsing pipe library:")
+print(result2)
