@@ -1,0 +1,23 @@
+from PyPDF2 import PdfFileWriter, PdfFileReader
+
+# Create PdfFileWriter object for the new encrypted PDF
+writer = PdfFileWriter()
+
+# Specify the file to be encrypted
+file = 'test_file.pdf'
+
+# Read the PDF file
+reader = PdfFileReader(file)
+
+# Add each page to the PdfFileWriter object
+for page in range(reader.numPages):
+    writer.addPage(reader.getPage(page))
+
+# Encrypt the PDF with a password
+writer.encrypt('Password')
+
+# Write the encrypted PDF to a new file
+with open('encrypted_test_file.pdf', 'wb') as file:
+    writer.write(file)
+
+print('PDF encrypted')
