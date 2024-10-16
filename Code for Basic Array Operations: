@@ -1,0 +1,14 @@
+# Creating an array (list in Python)
+arr = [1, 2, 3, 4, 5]
+
+# Accessing elements
+print(arr[0])  # Output: 1
+
+# Updating elements
+arr[0] = 10
+
+# Printing the updated array
+print(arr)  # Output: [10, 2, 3, 4, 5]
+
+# Length of the array
+print(len(arr))  # Output: 5
