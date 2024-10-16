@@ -1,0 +1,22 @@
+# Using PyAutoGUI library
+# Install the library with: pip install pyautogui
+
+import pyautogui
+
+# Take a screenshot
+ss = pyautogui.screenshot()
+
+# Save the screenshot as 'image1.png'
+ss.save("image1.png")
+                              OR
+
+# Using PIL library (Pillow)
+# Install the library with: pip install Pillow
+
+from PIL import ImageGrab
+
+# Take a screenshot
+ss = ImageGrab.grab()
+
+# Save the screenshot as 'image2.png'
+ss.save("image2.png")
