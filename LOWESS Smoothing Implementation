@@ -1,0 +1,8 @@
+from tsmoothie.smoother import LowessSmoother
+
+# Operate smoothing
+smoother = LowessSmoother(smooth_fraction=0.1, iterations=1)
+smoother.smooth(data)
+
+# Generate intervals
+low, up = smoother.get_intervals("prediction_interval")
